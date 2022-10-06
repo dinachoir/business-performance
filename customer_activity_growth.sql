@@ -8,9 +8,9 @@
 --(1) Average Monthly Active User (MAU) per year
 WITH monthly_active_user AS (
 		SELECT 
-				DATE_PART('year', eo.order_purchase_time) AS year,
-				DATE_PART('month', eo.order_purchase_time) AS month,
-				COUNT(DISTINCT ec.customer_id) AS active_users
+			DATE_PART('year', eo.order_purchase_time) AS year,
+			DATE_PART('month', eo.order_purchase_time) AS month,
+			COUNT(DISTINCT ec.customer_id) AS active_users
 		FROM ecom_customers ec
 		LEFT JOIN ecom_orders eo
 			ON ec.customer_id = eo.customer_id
@@ -28,8 +28,8 @@ ORDER BY 1;
 --(2) Total new customer per year
 WITH new_customers AS (
 		SELECT
-				ec.customer_id,
-				MIN(eo.order_purchase_time) AS first_order_time
+			ec.customer_id,
+			MIN(eo.order_purchase_time) AS first_order_time
 		FROM ecom_customers ec
 		LEFT JOIN ecom_orders eo
 			ON ec.customer_id = eo.customer_id
@@ -46,9 +46,9 @@ ORDER BY 1;
 --(3) Total number of customer who made repeat order per year
 WITH repeat_orders AS (
 		SELECT  
-				DATE_PART('year', eo.order_purchase_time) AS year,
-				ec.customer_id AS repeated_customers,
-				COUNT(eo.order_id) AS total_order
+			DATE_PART('year', eo.order_purchase_time) AS year,
+			ec.customer_id AS repeated_customers,
+			COUNT(eo.order_id) AS total_order
 		FROM ecom_customers ec
 		LEFT JOIN ecom_orders eo
 			ON ec.customer_id = eo.customer_id
@@ -61,39 +61,13 @@ SELECT  year,
 FROM repeat_orders
 GROUP BY 1;
 
--------
-WITH first_order AS (
-		SELECT  
-				MIN(eo.order_purchase_time) AS first_order_time,
-				ec.customer_id
-		FROM ecom_customers ec
-		LEFT JOIN ecom_orders eo
-			ON ec.customer_id = eo.customer_id
-		GROUP BY 2
-		)
-	
-SELECT  
-		DATE_PART('year', eo.order_purchase_time) AS year,
-		COUNT(DISTINCT fo.customer_id) AS repeated_customers
-FROM first_order fo
-LEFT JOIN ecom_orders eo
-	ON fo.customer_id = eo.customer_id
-WHERE eo.order_purchase_time < fo.first_order_time
-GROUP BY 1
---ORDER BY 2 DESC
-
-SELECT  DATE_PART('year', order_purchase_time) AS year,
-		COUNT(DISTINCT customer_id)
-FROM ecom_orders
-GROUP BY 1
-
 
 --(4) Average order frequency per year
 WITH orders AS (
 		SELECT
-				ec.customer_id,
-				DATE_PART('year', eo.order_purchase_time) AS year,
-				COUNT(*) AS order_frequency
+			ec.customer_id,
+			DATE_PART('year', eo.order_purchase_time) AS year,
+			COUNT(*) AS order_frequency
 		FROM ecom_customers ec
 		LEFT JOIN ecom_orders eo
 			ON ec.customer_id = eo.customer_id
@@ -114,9 +88,9 @@ CREATE TEMP TABLE average_montly_active_users AS
 SELECT  year,
 		ROUND(AVG(active_users), 0) AS avg_monthly_active_users
 FROM (	SELECT 
-				DATE_PART('year', eo.order_purchase_time) AS year,
-				DATE_PART('month', eo.order_purchase_time) AS month,
-				COUNT(DISTINCT ec.customer_id) AS active_users
+		DATE_PART('year', eo.order_purchase_time) AS year,
+		DATE_PART('month', eo.order_purchase_time) AS month,
+		COUNT(DISTINCT ec.customer_id) AS active_users
 		FROM ecom_customers ec
 		LEFT JOIN ecom_orders eo
 			ON ec.customer_id = eo.customer_id
@@ -130,8 +104,8 @@ CREATE TEMP TABLE total_new_customers AS
 SELECT  DATE_PART('year', first_order_time) AS year,
 		COUNT(*) AS number_of_new_customers
 FROM (SELECT
-				ec.customer_id,
-				MIN(eo.order_purchase_time) AS first_order_time
+		ec.customer_id,
+		MIN(eo.order_purchase_time) AS first_order_time
 		FROM ecom_customers ec
 		LEFT JOIN ecom_orders eo
 			ON ec.customer_id = eo.customer_id
@@ -149,9 +123,9 @@ CREATE TEMP TABLE average_order AS
 SELECT  year,
 		ROUND(AVG(order_frequency), 1) AS avg_order_frequency
 FROM (	SELECT
-				ec.customer_id,
-				DATE_PART('year', eo.order_purchase_time) AS year,
-				COUNT(*) AS order_frequency
+		ec.customer_id,
+		DATE_PART('year', eo.order_purchase_time) AS year,
+		COUNT(*) AS order_frequency
 		FROM ecom_customers ec
 		LEFT JOIN ecom_orders eo
 			ON ec.customer_id = eo.customer_id

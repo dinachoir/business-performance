@@ -3,7 +3,6 @@
 ## Working Environment
 * **Tool** : PostgreSQL
 * **Programming** Language : SQL
-* **Visualization** : Tableau
 
 
 ## Objectives
@@ -32,12 +31,28 @@ Before doing an analysis, here are the steps to prepare the ecommerce database:
 
 ## Data Analysis
 ### Annual Customer Activity Growth
+
+  <p align="center">
+  <img width="500" alt="summary" src="https://user-images.githubusercontent.com/98371569/202129582-93e53e26-95ff-4fcd-ba5a-e063e99c08c9.png">
+    <br style="font-size:5px"> Figure 2. Average MAU and New Customers Increase </br>
+  </p>
+
+
    * Relatively customer acquisition is increasing every year.
    * The average monthly active users is increasing every year.
    * Order only made by new customers, therefore there is no repeated customer made another order. This means customer retention is really poor.
    * In average, customers only did one order each year.
    
 ### Annual Product Category Quality
+  <p align="center">
+  <img width="500" alt="summary" src="https://user-images.githubusercontent.com/98371569/202137844-30d53a1c-1e28-4d2a-bdbb-7fa6ee2650c9.png">
+    <br style="font-size:5px"> Figure 3. Total Revenue & Top Product Revenue Increase </br>
+    <br  </br>
+    <img width="500" alt="summary" src="https://user-images.githubusercontent.com/98371569/202140753-f213486a-03bd-4a76-8ca8-71c0317d7e88.png">
+    <br style="font-size:5px"> Figure 4. Top & Most Canceled Product by Year </br>
+  </p>
+
+
    * Relatively total revenue and total canceled order are increasing each year.
    * Product category that generated the highest revenue is different each year. This could be influenced by the current trend.
    * Health & beauty is a product category that generated the highest revenue, which contributed around 10% of the total revenue in 2018. 
@@ -45,6 +60,12 @@ Before doing an analysis, here are the steps to prepare the ecommerce database:
    * The highest revenue of Health & beauty also followed with the highest cancel frequency. It contributed 8% of the total number of canceled order.
 
 ### Annual Payment Type Usage
+  <p align="center">
+  <img width="500" alt="summary" src="https://user-images.githubusercontent.com/98371569/202134567-a15e17db-fd85-4924-9259-5f456d419422.png">
+    <br style="font-size:5px"> Figure 5. Payment Type Usage </br>
+  </p>
+  
+  
    * Credit card is the most popular payment type that frequently used by the customers in each year.
    * The increase in the use of debit card as a payment method in 2018 is the most significant.
    * In 2018, voucher usage as a payment method slightly decreases compared to the previous year. Meanwhile the others are increasing.

@@ -32,14 +32,12 @@ Before doing an analysis, here are the steps to prepare the ecommerce database:
 
 ## Data Analysis
 ### Annual Customer Activity Growth
-   * Since the year of 2016 data only consisted of 3 months, the difference of number of new customers between 2016 and 2017 is so high.
    * Relatively customer acquisition is increasing every year.
    * The average monthly active users is increasing every year.
    * Order only made by new customers, therefore there is no repeated customer made another order. This means customer retention is really poor.
    * In average, customers only did one order each year.
    
 ### Annual Product Category Quality
-   * Since the year of 2016 data only consisted of 3 months, the difference of total revenue and total canceled orders between 2016 and 2017 becomes very high.
    * Relatively total revenue and total canceled order are increasing each year.
    * Product category that generated the highest revenue is different each year. This could be influenced by the current trend.
    * Health & beauty is a product category that generated the highest revenue, which contributed around 10% of the total revenue in 2018. 
@@ -47,7 +45,12 @@ Before doing an analysis, here are the steps to prepare the ecommerce database:
    * The highest revenue of Health & beauty also followed with the highest cancel frequency. It contributed 8% of the total number of canceled order.
 
 ### Annual Payment Type Usage
-   * Since the year of 2016 data only consisted of 3 months, the difference of the number of payment type usage between 2016 and 2017 becomes very high..
    * Credit card is the most popular payment type that frequently used by the customers in each year.
    * The increase in the use of debit card as a payment method in 2018 is the most significant.
    * In 2018, voucher usage as a payment method slightly decreases compared to the previous year. Meanwhile the others are increasing.
+
+
+## Key Insights
+1. The low retention can be an  early diagnosis that customers are not interested, or unsatisfied or disappointed in shopping at the e-commerce. Therefore we require to improve our service and product, and then develop loyalty program to retain customers and build an emotional ties to our platform.
+2. Developing crowd recomendations would be great for driving more purchases in trending products.
+3. The most popular payment method is a credit card, so that further analysis can be carried out regarding the habits of these customers such as which product categories they usually buy.
